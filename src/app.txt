@@ -1,0 +1,16 @@
+
+  const [quote,setQuote]=useState("");
+  let getQuote=async()=>{
+   let  getdata = await (fetch("https://api.quotable.io/random"))
+    let newdata=await getdata.json()
+    setQuote(newdata.content)
+
+  }
+  useEffect(()=>getQuote(),[]) 
+  
+  return (
+    <div className="App">
+    <h1>{quote.content}</h1>
+      <button>get data</button>
+    </div>
+  );
